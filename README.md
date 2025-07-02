@@ -8,7 +8,7 @@ This project is **Day 1** of the **#30DaysOfVibeCoding** challenge, a daily expl
 
 The Polaroid Photo Frame Maker is a fun, interactive tool built with React that lets you upload a photo, wrap it in a classic Polaroid frame, add a handwritten caption, and decorate it with draggable stickers.
 
-### 🔗 **[Live Demo on Vercel](https://polaroid-maker-shubhi.vercel.app/)**
+### 🔗 **[Live Demo on Vercel](https://polaroid-maker-mu.vercel.app/)**
 
 ---
 
@@ -99,7 +99,7 @@ Contributions, issues, and feature requests are welcome!
 *   Push to the branch (`git push origin feature/AmazingFeature`).
 *   Open a **Pull Request**.
 
-If you run into any problems or have a suggestion, please [open an issue](https://github.com/shubhisharma23/Polaroid-Maker/issues).
+If you run into any problems or have a suggestion, please [open an issue](https://github.com/shvbhii/Polaroid-Maker.git).
 
 ---
 

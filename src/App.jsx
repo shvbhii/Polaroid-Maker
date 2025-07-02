@@ -2,16 +2,20 @@
 import { useState, useRef } from 'react';
 import * as htmlToImage from 'html-to-image';
 
-// Import our new components
+// Import our components
 import ControlsPanel from './components/ControlsPanel';
 import Workspace from './components/Workspace';
 import Footer from './components/Footer';
+import DownloadModal from './components/DownloadModal'; // <-- Import the new modal
 
 // Import the main stylesheet
 import './styles/App.css';
 
 function App() {
-  // All state now lives in the top-level component
+  // State for the modal
+  const [generatedImage, setGeneratedImage] = useState(null);
+
+  // Existing state
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState('My Polaroid');
   const [font, setFont] = useState('font-casual');
@@ -19,16 +23,11 @@ function App() {
   const [captionColor, setCaptionColor] = useState('color-dark');
   const [stickers, setStickers] = useState([]);
 
-  // Ref for the download functionality
   const polaroidRef = useRef(null);
   
-  // --- CONFIGURABLE FOOTER URLS ---
-  // You can easily change your links here!
   const GITHUB_URL = "https://github.com/shvbhii/Polaroid-Maker.git";
-  const LINKEDIN_URL = "https://www.linkedin.com/in/shvbhi";
+  const LINKEDIN_URL = "https://www.linkedin.com/in/shvbhi/";
 
-
-  // All handler functions also live here
   const handleImageUpload = (e) => {
     if (e.target.files && e.target.files[0]) {
       setImage(URL.createObjectURL(e.target.files[0]));
@@ -37,33 +36,33 @@ function App() {
 
   const addSticker = (stickerImg) => {
     const newSticker = {
-      id: Date.now(),
-      img: stickerImg,
+      id: Date.now(), img: stickerImg,
       x: 20, y: 20, width: 80, height: 80,
     };
     setStickers([...stickers, newSticker]);
   };
 
-  const downloadImage = () => {
-    if (polaroidRef.current) {
-      htmlToImage.toPng(polaroidRef.current)
-        .then(function (dataUrl) {
-          const link = document.createElement('a');
-          link.download = `polaroid-by-shubhi.png`;
-          link.href = dataUrl;
-          link.click();
-        })
-        .catch(function (error) {
-          console.error('Oops, something went wrong!', error);
-        });
-    }
+  // --- UPDATED DOWNLOAD FUNCTION ---
+  const handleDownload = () => {
+    if (!polaroidRef.current) return;
+
+    // The 'pixelRatio' option can improve image quality on high-res screens
+    htmlToImage.toPng(polaroidRef.current, { pixelRatio: 2 })
+      .then(function (dataUrl) {
+        // Instead of trying to force a download, we now show the modal
+        setGeneratedImage(dataUrl);
+      })
+      .catch(function (error) {
+        console.error('Oops, something went wrong!', error);
+        alert('Sorry, there was an error creating the image.');
+      });
   };
 
   return (
-    // A main wrapper for layout
     <div className="page-wrapper">
       <div className="app-container">
         <ControlsPanel
+          // ... (pass all existing props)
           caption={caption}
           setCaption={setCaption}
           captionColor={captionColor}
@@ -74,9 +73,11 @@ function App() {
           setBorder={setBorder}
           handleImageUpload={handleImageUpload}
           addSticker={addSticker}
-          downloadImage={downloadImage}
+          // Pass the new handler to the download button
+          downloadImage={handleDownload}
         />
         <Workspace
+          // ... (pass all existing props)
           polaroidRef={polaroidRef}
           image={image}
           border={border}
@@ -87,6 +88,12 @@ function App() {
         />
       </div>
       <Footer githubUrl={GITHUB_URL} linkedinUrl={LINKEDIN_URL} />
+      
+      {/* Render the modal here. It will only be visible when generatedImage is not null. */}
+      <DownloadModal 
+        generatedImage={generatedImage} 
+        onClose={() => setGeneratedImage(null)} 
+      />
     </div>
   );
 }
