@@ -67,9 +67,9 @@ const ControlsPanel = ({
         <select id="border-picker" value={border} onChange={(e) => setBorder(e.target.value)}>
           <option value="border-classic">Classic White</option>
           <option value="border-vintage">Aged Paper</option>
-          <option value="border-pink">Pink Texture</option>
-          <option value="border-blue">Blue Texture</option>
-          <option value="border-black">Black Texture</option>
+          <option value="border-pink"> Denim </option>
+          <option value="border-blue"> Red Gingham </option>
+          <option value="border-black">Black Leather </option>
         </select>
       </div>
       

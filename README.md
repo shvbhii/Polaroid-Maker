@@ -14,9 +14,9 @@ The Polaroid Photo Frame Maker is a fun, interactive tool built with React that 
 
 ### 🖼️ Project Demo
 
-![Polaroid Maker Screenshot](./public/Polaroid-Maker-Demo.png)
+![Polaroid Maker Screenshot](./public/polaroid-maker-demo.png)
 
-![Polaroid Maker Screenshot](./public/Polaroid-Maker-Demo2.png)
+![Polaroid Maker Screenshot](./public/polaroid-maker-demo2.png)
 
 
 <!-- 

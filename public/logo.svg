@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">
+  <defs>
+    <!-- Enhanced gradients for petals -->
+    <radialGradient id="petalGradient1" cx="0.2" cy="0.2" r="1.2">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#ffe8f0"/>
+      <stop offset="70%" stop-color="#ff9dc6"/>
+      <stop offset="100%" stop-color="#e91e63"/>
+    </radialGradient>
+    
+    <radialGradient id="petalGradient2" cx="0.25" cy="0.25" r="1.1">
+      <stop offset="0%" stop-color="#fff5f8"/>
+      <stop offset="25%" stop-color="#ffeef4"/>
+      <stop offset="65%" stop-color="#ffb3d9"/>
+      <stop offset="100%" stop-color="#f06292"/>
+    </radialGradient>
+    
+    <radialGradient id="centerGradient" cx="0.3" cy="0.3" r="1">
+      <stop offset="0%" stop-color="#fff8e1"/>
+      <stop offset="40%" stop-color="#ffcc02"/>
+      <stop offset="80%" stop-color="#ff8f00"/>
+      <stop offset="100%" stop-color="#e65100"/>
+    </radialGradient>
+    
+    <radialGradient id="innerCenter" cx="0.4" cy="0.4" r="0.6">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#fff3e0"/>
+      <stop offset="100%" stop-color="#ffb74d"/>
+    </radialGradient>
+    
+    <!-- Enhanced shadow and glow effects -->
+    <filter id="petalShadow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="2" dy="3" result="offset"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offset" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="centerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Subtle sparkle effect -->
+    <filter id="sparkle" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main flower petals with enhanced curves -->
+  <g transform="translate(50,50)">
+    <!-- Petal 1 - top -->
+    <path d="M 0,-20 Q -8,-14 -10,-4 Q -8,0 -4,6 Q 0,8 4,6 Q 8,0 10,-4 Q 8,-14 0,-20 Z" 
+          fill="url(#petalGradient1)" 
+          filter="url(#petalShadow)"
+          transform="rotate(0)"/>
+    
+    <!-- Petal 2 - top right -->
+    <path d="M 0,-20 Q -8,-14 -10,-4 Q -8,0 -4,6 Q 0,8 4,6 Q 8,0 10,-4 Q 8,-14 0,-20 Z" 
+          fill="url(#petalGradient2)" 
+          filter="url(#petalShadow)"
+          transform="rotate(72)"/>
+    
+    <!-- Petal 3 - bottom right -->
+    <path d="M 0,-20 Q -8,-14 -10,-4 Q -8,0 -4,6 Q 0,8 4,6 Q 8,0 10,-4 Q 8,-14 0,-20 Z" 
+          fill="url(#petalGradient1)" 
+          filter="url(#petalShadow)"
+          transform="rotate(144)"/>
+    
+    <!-- Petal 4 - bottom left -->
+    <path d="M 0,-20 Q -8,-14 -10,-4 Q -8,0 -4,6 Q 0,8 4,6 Q 8,0 10,-4 Q 8,-14 0,-20 Z" 
+          fill="url(#petalGradient2)" 
+          filter="url(#petalShadow)"
+          transform="rotate(216)"/>
+    
+    <!-- Petal 5 - top left -->
+    <path d="M 0,-20 Q -8,-14 -10,-4 Q -8,0 -4,6 Q 0,8 4,6 Q 8,0 10,-4 Q 8,-14 0,-20 Z" 
+          fill="url(#petalGradient1)" 
+          filter="url(#petalShadow)"
+          transform="rotate(288)"/>
+  </g>
+  
+  <!-- Delicate petal veining -->
+  <g transform="translate(50,50)" stroke="#e91e63" stroke-width="0.3" fill="none" opacity="0.4">
+    <path d="M 0,-15 Q -2,-8 0,2" transform="rotate(0)"/>
+    <path d="M 0,-15 Q 2,-8 0,2" transform="rotate(0)"/>
+    <path d="M 0,-15 Q -2,-8 0,2" transform="rotate(72)"/>
+    <path d="M 0,-15 Q 2,-8 0,2" transform="rotate(72)"/>
+    <path d="M 0,-15 Q -2,-8 0,2" transform="rotate(144)"/>
+    <path d="M 0,-15 Q 2,-8 0,2" transform="rotate(144)"/>
+    <path d="M 0,-15 Q -2,-8 0,2" transform="rotate(216)"/>
+    <path d="M 0,-15 Q 2,-8 0,2" transform="rotate(216)"/>
+    <path d="M 0,-15 Q -2,-8 0,2" transform="rotate(288)"/>
+    <path d="M 0,-15 Q 2,-8 0,2" transform="rotate(288)"/>
+  </g>
+  
+  <!-- Elegant stamens -->
+  <g transform="translate(50,50)">
+    <circle cx="4" cy="-3" r="1.2" fill="#ff4081" opacity="0.9" filter="url(#sparkle)"/>
+    <circle cx="-4" cy="-3" r="1.2" fill="#ff4081" opacity="0.9" filter="url(#sparkle)"/>
+    <circle cx="0" cy="4" r="1.2" fill="#ff4081" opacity="0.9" filter="url(#sparkle)"/>
+    <circle cx="3" cy="3" r="1.2" fill="#ff4081" opacity="0.9" filter="url(#sparkle)"/>
+    <circle cx="-3" cy="3" r="1.2" fill="#ff4081" opacity="0.9" filter="url(#sparkle)"/>
+    <circle cx="2" cy="-4" r="1" fill="#c2185b" opacity="0.8"/>
+    <circle cx="-2" cy="-4" r="1" fill="#c2185b" opacity="0.8"/>
+  </g>
+  
+  <!-- Gorgeous center with multiple layers -->
+  <circle cx="50" cy="50" r="6" fill="url(#centerGradient)" filter="url(#centerGlow)"/>
+  <circle cx="50" cy="50" r="3.5" fill="url(#innerCenter)"/>
+  <circle cx="50" cy="50" r="1.5" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Sparkling highlights on petals -->
+  <g transform="translate(50,50)" fill="#ffffff" opacity="0.6">
+    <ellipse cx="-3" cy="-12" rx="2" ry="4" transform="rotate(0)" filter="url(#sparkle)"/>
+    <ellipse cx="-3" cy="-12" rx="2" ry="4" transform="rotate(72)" filter="url(#sparkle)"/>
+    <ellipse cx="-3" cy="-12" rx="2" ry="4" transform="rotate(144)" filter="url(#sparkle)"/>
+    <ellipse cx="-3" cy="-12" rx="2" ry="4" transform="rotate(216)" filter="url(#sparkle)"/>
+    <ellipse cx="-3" cy="-12" rx="2" ry="4" transform="rotate(288)" filter="url(#sparkle)"/>
+  </g>
+  
+
+</svg>
