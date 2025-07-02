@@ -1,0 +1,253 @@
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- MAIN LAYOUT --- */
+.app-container {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* --- CONTROLS PANEL (THE GLASS CARD) --- */
+.controls-panel {
+  width: 350px;
+  flex-shrink: 0; /* Prevents panel from shrinking */
+  padding: 30px;
+  
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.controls-panel h2 {
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  margin-bottom: 0; /* Adjusted for watermark */
+  letter-spacing: 1px;
+}
+
+/* --- NEW: Watermark Style --- */
+.watermark {
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  color: #666;
+  margin-top: -5px;
+  margin-bottom: 30px; /* Restores space below header */
+  letter-spacing: 0.5px;
+}
+
+.control-group {
+  margin-bottom: 25px;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 400;
+  color: #555;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- STYLING FOR INPUTS, SELECTS --- */
+.control-group input[type="file"],
+.control-group input[type="text"],
+.control-group select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+.control-group input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.control-group input[type="file"]::file-selector-button {
+  background-color: #8ec5fc;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.control-group input[type="file"]::file-selector-button:hover {
+  background-color: #6aadda;
+}
+
+.control-group input[type="text"]:focus,
+.control-group select:focus {
+  outline: none;
+  border-color: #8ec5fc;
+  box-shadow: 0 0 0 3px rgba(142, 197, 252, 0.4);
+}
+
+/* --- WORKSPACE & POLAROID FRAME --- */
+.workspace {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.polaroid-frame {
+  background: white;
+  padding: 15px 15px 70px 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 6px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative; 
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 10px 15px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.polaroid-image-container {
+  background: #f0f0f0;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #eee;
+  background-color: transparent;
+}
+
+.polaroid-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* --- CAPTION COLOR STYLES --- */
+.color-dark {
+  color: #333;
+}
+
+.color-light {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Helps with readability */
+}
+
+/* --- FONT STYLES --- */
+.font-casual { font-family: 'Gochi Hand', cursive; }
+.font-vintage { font-family: 'Kalam', cursive; font-weight: 300; font-size: 26px; }
+.font-marker { font-family: 'Permanent Marker', cursive; }
+
+/* --- BORDER STYLES (Full Frame Textures) --- */
+.border-vintage,
+.border-pink,
+.border-blue,
+.border-black {
+  background-size: cover;
+  background-position: center;
+}
+
+.border-vintage {
+  background-image: url('../assets/textures/vintage-paper.jpg');
+}
+.border-pink {
+  background-image: url('../assets/textures/pink-texture.jpg');
+}
+.border-blue {
+  background-image: url('../assets/textures/blue-texture.jpg');
+}
+.border-black {
+  background-image: url('../assets/textures/black-texture.jpg');
+}
+
+/* --- STICKER PACK & DOWNLOAD BUTTON --- */
+.sticker-pack {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.sticker-item {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+}
+
+.sticker-item:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.download-btn {
+  width: 100%;
+  padding: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(79, 172, 254, 0.6);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .controls-panel {
+    width: 90%;
+    max-width: 500px;
+  }
+  .workspace {
+    padding-top: 0;
+  }
+}

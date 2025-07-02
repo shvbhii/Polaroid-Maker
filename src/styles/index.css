@@ -1,0 +1,27 @@
+/* src/styles/index.css */
+
+/* --- FONT IMPORTS --- */
+/* UI Font (Poppins) and Handwritten Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Kalam:wght@300&family=Permanent+Marker&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- GLOBAL STYLES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Modern UI font */
+  background-color: #8EC5FC;
+  background-image: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Centering the app container */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top */
+  padding: 40px 20px;
+}

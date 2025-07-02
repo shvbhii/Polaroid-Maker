@@ -1,0 +1,56 @@
+/* src/styles/Footer.css */
+
+.app-footer {
+  width: 100%;
+  padding: 20px 40px;
+  margin-top: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-link-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-link-item:hover {
+  color: #0077b5; /* LinkedIn blue for hover effect */
+}
+
+.footer-icon {
+  font-size: 20px;
+}
+
+.footer-credit {
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  .app-footer {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
